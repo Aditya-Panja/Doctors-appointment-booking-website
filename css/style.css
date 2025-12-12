@@ -1,0 +1,1392 @@
+/* ==========================================================================
+   1. CSS Variables & Global Styles
+   ========================================================================== */
+
+/* Define reusable variables for colors, fonts, and spacing */
+:root {
+    --primary-color: #007bff;
+    --primary-hover-color: #0056b3;
+    --dark-blue: #0d2d5d;
+    --light-gray: #f4f7f6;
+    --text-color: #333;
+    --border-color: #e0e0e0;
+    --white-color: #fff;
+    --font-family-sans: Arial, sans-serif;
+    --base-spacing: 1rem; /* Approx 16px */
+}
+
+/* Basic reset and box-sizing */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+    font-size: 16px;
+    scroll-behavior: smooth; 
+}
+
+/* Sticky Footer & Body Styles */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: var(--font-family-sans);
+    background-color: var(--light-gray);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+main.container {
+    flex-grow: 1; /* Pushes the footer down */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   2. Header & Navigation
+   ========================================================================== */
+
+.top-bar {
+    background-color: #f8f9fa;
+    padding: 0.5rem 0;
+    font-size: 0.875rem;
+    border-bottom: 1px solid var(--border-color);
+}
+.top-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.contact-info i {
+    color: var(--primary-color);
+    margin-right: 0.5rem;
+}
+.contact-info span {
+    margin-right: 1.5rem;
+}
+
+.main-header {
+    background-color: var(--white-color);
+    padding: var(--base-spacing) 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    height: 50px;
+}
+.main-nav ul {
+    list-style: none;
+    display: flex;
+}
+.main-nav ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: bold;
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+}
+.main-nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+/* ==========================================================================
+   3. Hero Section & Sticky Tab
+   ========================================================================== */
+
+.hero-section {
+    background-color: var(--dark-blue);
+    color: var(--white-color);
+    padding: 4rem 0 0 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    min-height: 300px;
+}
+.hero-text h1 {
+    font-size: 3rem;
+}
+.hero-image-container {
+    position: absolute;
+    right: 5%;
+    bottom: 0;
+    height: 100%;
+}
+.hero-doctor-image {
+    height: 100%;
+    width: auto;
+}
+
+.sticky-book-appointment {
+    position: fixed;
+    top: 50%;
+    right: -70px;
+    transform: rotate(-90deg) translateY(-50%);
+    transform-origin: top right;
+    background-color: var(--primary-hover-color);
+    color: var(--white-color);
+    padding: 0.75rem 1.25rem;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px 5px 0 0;
+    z-index: 1001;
+}
+
+/* ==========================================================================
+   4. Search, Forms & Buttons
+   ========================================================================== */
+
+.search-section {
+    padding: 2.5rem 0;
+}
+.search-form-container {
+    background-color: var(--white-color);
+    padding: 2rem;
+    border-radius: 8px;
+    border-top: 4px solid var(--primary-color);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.search-form {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.search-form .form-group {
+    flex: 1;
+}
+.search-form select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+/* Add these styles for your form containers */
+
+.form-container {
+    max-width: 500px; /* Sets a maximum width for the form */
+    margin: 40px auto; /* Centers the form horizontally with space on top/bottom */
+    padding: 30px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.form-container label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* Important for padding and width calculation */
+    font-size: 16px;
+}
+
+.form-container button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.form-container button:hover {
+    background: #0056b3;
+}
+
+.form-container p {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* --- Consistent Button Styles --- */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.btn:hover {
+    transform: translateY(-2px);
+}
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+.btn-primary:hover {
+    background-color: var(--primary-hover-color);
+}
+.btn-secondary {
+    background-color: #f0f0f0;
+    color: var(--text-color);
+}
+.btn-secondary:hover {
+    background-color: #e0e0e0;
+}
+
+/* ==========================================================================
+   5. Doctors Grid & Cards
+   ========================================================================== */
+
+.doctors-grid-section {
+    padding: 2.5rem 0;
+}
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--dark-blue);
+}
+.doctors-grid {
+    display: grid;
+    /* THIS IS THE CHANGE: Use 4 columns on desktop */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 1.5rem;
+}
+.doctor-card {
+    background-color: var(--white-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.doctor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.doctor-card-img img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+.doctor-card-content {
+    padding: 1.25rem;
+    text-align: center;
+}
+.doctor-card-content h3 {
+    font-size: 1.25rem;
+    color: var(--dark-blue);
+}
+.doctor-dept {
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #555;
+    margin: 0.25rem 0;
+}
+.doctor-card-buttons {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+}
+.doctor-card-buttons .btn {
+    flex: 1;
+}
+
+/* ==========================================================================
+   Dashboard Page Styles
+   ========================================================================== */
+
+.welcome-banner {
+    padding: 2rem;
+    background-color: var(--dark-blue);
+    color: var(--white-color);
+    border-radius: 8px;
+    margin-bottom: 2.5rem;
+}
+
+.welcome-banner h2 {
+    margin: 0 0 0.5rem 0;
+}
+
+.logout-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--white-color);
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* Fix for doctor card content alignment */
+.doctor-card-content {
+    text-align: center;
+}
+
+.section-divider {
+    border: 0;
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 2.5rem 0;
+}
+
+/* --- Appointments Table Styling --- */
+.my-appointments-section {
+    padding-bottom: 2.5rem;
+}
+
+.appointments-table-container {
+    background-color: var(--white-color);
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    overflow-x: auto; /* For responsiveness on small screens */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+th {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: #555;
+    background-color: #f8f9fa;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.status-badge {
+    padding: 0.25rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: var(--white-color);
+    text-transform: capitalize;
+}
+
+.status-scheduled { background-color: #007bff; }
+.status-completed { background-color: #28a745; }
+.status-cancelled { background-color: #dc3545; }
+
+/* ==========================================================================
+   Footer Styles
+   ========================================================================== */
+
+footer {
+    background-color: #343a40;
+    color: #f8f9fa;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: auto; /* Part of the sticky footer solution */
+}
+/* Add this to the end of style.css */
+
+/* --- Status Update Form in Admin Table --- */
+.update-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.update-form select {
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.btn-update {
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    background-color: #28a745; /* Green */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-update:hover {
+    background-color: #218838;
+}
+
+/* Add a new color for the 'confirmed' status badge */
+.status-confirmed {
+    background-color: #ffc107; /* Yellow */
+    color: #212529;
+}
+
+
+/* Add this to the end of your style.css file */
+
+/* --- Admin Navigation Links --- */
+.admin-nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+.admin-nav-item {
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--text-color);
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.admin-nav-item:hover {
+    background-color: #e9ecef;
+}
+
+.admin-nav-item.active {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+/* ==========================================================================
+   6. Responsive Design
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    .doctors-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    .main-nav { display: none; } /* Needs a hamburger menu for a real site */
+    /*.hero-image-container { display: none; }*/
+}
+@media (max-width: 768px) {
+    .search-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+}
+/* ==========================================================================
+   Services Section
+   ========================================================================== */
+
+.services-section {
+    padding: 2.5rem 0;
+    background-color: var(--white-color); /* Or use var(--light-gray) */
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.service-card {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.service-card i {
+    font-size: 3rem; /* Icon size */
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.service-card h4 {
+    font-size: 1.25rem;
+    color: var(--dark-blue);
+    margin-bottom: 0.5rem;
+}
+
+.service-card p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #555;
+}
+
+/* ==========================================================================
+   Mega Menu Dropdown Styles (Improved)
+   ========================================================================== */
+
+/* The parent list item */
+.nav-item-dropdown {
+    position: relative;
+}
+
+/* The hidden state of the dropdown */
+.dropdown-menu {
+    /* Hiding with opacity & visibility */
+    opacity: 0;
+    visibility: hidden;
+    
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px); /* Start 10px down */
+    
+    width: 600px;
+    background-color: var(--white-color);
+    
+    /* Added border-top to match site theme */
+    border-top: 3px solid var(--primary-color);
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Softer shadow */
+    padding: 1.5rem;
+    z-index: 1001;
+
+    /* The smoothness! */
+    transition: opacity 0.3s ease, 
+                visibility 0.3s ease, 
+                transform 0.3s ease;
+}
+
+/* The visible state (on hover) */
+.nav-item-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0); /* Move back to 0 */
+}
+
+/* The columns inside the menu */
+.dropdown-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.dropdown-column {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-column li a {
+    display: block;
+    padding: 0.5rem 0.75rem; /* A bit more padding */
+    font-size: 0.95rem;
+    color: #555;
+    font-weight: normal;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Improved hover state for links */
+.dropdown-column li a:hover {
+    color: var(--primary-color);
+    background-color: #f2f5f8;
+}
+
+/* ==========================================================================
+   Department Details Page
+   ========================================================================== */
+.department-description-section {
+    padding: 3rem 0;
+    background-color: var(--white-color);
+}
+.department-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+.description-text h2 {
+    font-size: 2rem;
+    color: var(--dark-blue);
+    margin-bottom: 1rem;
+}
+.description-text p {
+    line-height: 1.7;
+    color: #555;
+}
+.description-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 768px) {
+    .department-content {
+        grid-template-columns: 1fr; /* Stack on mobile */
+    }
+}
+
+/* ==========================================================================
+   About Us Section
+   ========================================================================== */
+.about-us-section {
+    padding: 3rem 0;
+    background-color: var(--white-color); /* A clean white background */
+}
+
+.about-us-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.about-us-text h4 {
+    font-size: 1.5rem;
+    color: var(--dark-blue);
+    margin-bottom: 1rem;
+}
+
+.about-us-text p {
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.about-us-text ul {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.about-us-text ul li {
+    color: #555;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.about-us-text ul li i {
+    color: var(--primary-color);
+    margin-right: 0.5rem;
+}
+
+.about-us-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Responsive fallback */
+@media (max-width: 768px) {
+    .about-us-content {
+        grid-template-columns: 1fr; /* Stack on mobile */
+    }
+}
+
+/* ==========================================================================
+   Contact Us Section
+   ========================================================================== */
+.contact-us-section {
+    padding: 3rem 0;
+    background-color: var(--light-gray); /* Light grey background for the whole section */
+}
+
+.contact-content-wrapper {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr; /* Info block slightly wider than form */
+    gap: 2rem;
+    align-items: flex-start; /* Align content to the top */
+    background-color: var(--white-color); /* White background for the inner content */
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    padding: 2.5rem; /* Inner padding */
+}
+
+.contact-info-block {
+    padding-right: 1.5rem; /* Space between info and form */
+}
+
+.contact-info-block h4 {
+    font-size: 1.2rem;
+    color: var(--dark-blue);
+    margin-bottom: 0.75rem;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    display: inline-block; /* Make border-bottom fit content */
+}
+
+.contact-info-block p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 0.8rem;
+    display: flex; /* For icon alignment */
+    align-items: center;
+}
+
+.contact-info-block p i {
+    color: var(--primary-color);
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+/* Social Icons */
+.social-icons {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 10px;
+}
+
+.social-icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border-radius: 50%;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+}
+
+.social-icons a:hover {
+    background-color: var(--dark-blue);
+}
+
+
+/* Contact Form Block */
+.contact-form-block {
+    background-color: #e6f0ff; /* Light blue background for the form area */
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.contact-form-block h4 {
+    font-size: 1.3rem;
+    color: var(--dark-blue);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 1rem;
+    border: 1px solid #cce0ff; /* Lighter border for form fields */
+    border-radius: 5px;
+    font-size: 0.95rem;
+    color: #333;
+    background-color: var(--white-color);
+}
+
+.contact-form textarea {
+    resize: vertical; /* Allow vertical resizing */
+}
+
+.contact-form button.btn-primary {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: var(--dark-blue); /* Use dark blue for submit button */
+    border: none;
+    color: var(--white-color);
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button.btn-primary:hover {
+    background-color: var(--primary-color); /* Primary color on hover */
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .contact-content-wrapper {
+        grid-template-columns: 1fr; /* Stack on smaller screens */
+        padding: 1.5rem;
+    }
+    .contact-info-block {
+        padding-right: 0;
+    }
+}
+
+/* --- Admin/Doctor Navigation Links --- */
+.admin-nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+.admin-nav-item {
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--text-color);
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.admin-nav-item:hover {
+    background-color: #e9ecef;
+}
+
+.admin-nav-item.active {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+/* ==========================================================================
+   Navigation Buttons (Login/Register)
+   ========================================================================== */
+
+.main-nav .nav-btn {
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.main-nav .nav-btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white-color) !important;
+}
+.main-nav .nav-btn-primary:hover {
+    background-color: var(--primary-hover-color);
+}
+
+.main-nav .nav-btn-secondary {
+    background-color: #f0f0f0;
+    color: var(--text-color) !important;
+}
+.main-nav .nav-btn-secondary:hover {
+    background-color: #e0e0e0;
+}
+
+/* ==========================================================================
+   Time Slot Booking Grid
+   ========================================================================== */
+
+.time-slot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+    padding: 10px 0;
+    margin-bottom: 1rem;
+}
+
+.time-slot-grid p {
+    grid-column: 1 / -1; /* Make text span all columns */
+    text-align: center;
+    color: #666;
+}
+
+/* Base style for all slot buttons */
+.slot {
+    padding: 12px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border: 2px solid var(--border-color);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+/* Style for available slots */
+.slot.available {
+    background-color: var(--white-color);
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+.slot.available:hover {
+    background-color: #e6f0ff;
+}
+
+/* Style for booked slots (disabled) */
+.slot.booked {
+    background-color: #f0f0f0;
+    color: #aaa;
+    border-color: #e0e0e0;
+    cursor: not-allowed;
+    text-decoration: line-through;
+}
+
+/* Style for the selected (active) slot */
+.slot.active {
+    background-color: #28a745; /* A green color for selection */
+    color: var(--white-color);
+    border-color: #218838;
+}
+
+/* ==========================================================================
+   Day Selector Grid (book_appointment.php)
+   ========================================================================== */
+
+.day-selector-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 days in a row */
+    gap: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.day-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 5px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: var(--white-color);
+    transition: all 0.2s ease;
+}
+
+.day-card:hover:not(:disabled) {
+    border-color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.day-card.active {
+    border-color: var(--primary-hover-color);
+    background-color: #e6f0ff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.day-card.disabled {
+    background-color: #f8f9fa;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.day-card .day-name {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #555;
+}
+
+.day-card .day-num {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--dark-blue);
+    margin: 5px 0;
+}
+
+.day-card .slots-available {
+    font-size: 0.8rem;
+    color: #28a745; /* Green */
+    font-weight: bold;
+}
+
+.day-card .slots-unavailable {
+    font-size: 0.8rem;
+    color: #aaa;
+}
+
+/* Responsive adjustment for small screens */
+@media (max-width: 768px) {
+    .day-selector-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 days per row */
+    }
+}
+@media (max-width: 480px) {
+    .day-selector-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 days per row */
+    }
+}
+
+/* ==========================================================================
+   Form Success/Error Messages
+   ========================================================================== */
+
+.form-message {
+    padding: 1rem;
+    margin: 0 auto 1.5rem auto; /* Centers the message box */
+    border-radius: 5px;
+    font-weight: bold;
+    max-width: 1200px; /* Make it match the container width */
+    border: 1px solid transparent;
+}
+
+.form-message.success {
+    background-color: #d4edda; /* Light green */
+    color: #155724; /* Dark green */
+    border-color: #c3e6cb;
+}
+
+.form-message.error {
+    background-color: #f8d7da; /* Light red */
+    color: #721c24; /* Dark red */
+    border-color: #f5c6cb;
+}
+
+/* ==========================================================================
+   Live Search Bar Styles
+   ========================================================================== */
+
+.search-bar-container {
+    margin-bottom: 1.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.live-search-input {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.live-search-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
+}
+
+/* ==========================================================================
+   Dependent Dropdown Form Styles
+   ========================================================================== */
+
+.dependent-dropdown-form {
+    display: flex;
+    gap: 1rem;
+}
+
+.dependent-dropdown-form .form-group {
+    flex: 1;
+}
+
+.dependent-dropdown-form .live-search-input {
+    width: 100%;
+}
+
+/* ==========================================================================
+   Adjusted Doctors Grid for 4 Columns
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    .doctors-grid {
+        /* Switch to 2 columns on tablets */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .doctors-grid {
+        /* Switch to 1 column on mobile */
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================================================
+   Discount & Price Summary (book_appointment.php)
+   ========================================================================== */
+
+.discount-section {
+    margin-top: 1.5rem;
+}
+
+.discount-input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 0.5rem;
+}
+
+.discount-input-group input {
+    flex-grow: 1; /* Make the input field take up available space */
+    margin-bottom: 0 !important; /* Override form-container default */
+}
+
+.discount-input-group .btn-secondary {
+    padding: 10px 15px;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+}
+.discount-input-group .btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+#coupon-message {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+#coupon-message.success {
+    color: #28a745; /* Green */
+}
+#coupon-message.error {
+    color: #dc3545; /* Red */
+}
+
+.price-summary {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+.price-summary p {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    color: #555;
+}
+.price-summary h4 {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    color: var(--dark-blue);
+    margin-top: 0.5rem;
+}
+
+/* ==========================================================================
+   Doctor Details Page (doctor_details.php)
+   ========================================================================== */
+
+.doctor-profile-card {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* 1 part image, 2 parts info */
+    gap: 2rem;
+    background-color: var(--white-color);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    margin-top: 2rem;
+}
+
+.doctor-profile-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.doctor-profile-info h1 {
+    font-size: 2.5rem;
+    color: var(--dark-blue);
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.doctor-profile-info .specialization {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.doctor-profile-info .fees {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.doctor-profile-info h3 {
+    font-size: 1.25rem;
+    color: var(--dark-blue);
+    margin-bottom: 0.5rem;
+}
+
+.doctor-profile-info .bio {
+    line-height: 1.7;
+    color: #555;
+}
+
+/* Responsive styles for the profile card */
+@media (max-width: 768px) {
+    .doctor-profile-card {
+        grid-template-columns: 1fr; /* Stack on mobile */
+    }
+    .doctor-profile-info h1 {
+        font-size: 2rem;
+    }
+}
+
+/* ==========================================================================
+   Doctor Card Availability Box
+   ========================================================================== */
+
+.doctor-availability {
+    margin: 1rem 0;
+    padding: 0.75rem;
+    background-color: #f8f9fa; /* Light grey background */
+    border-radius: 5px;
+    border: 1px solid #e9ecef;
+    text-align: left; /* Override card's center align */
+}
+
+.doctor-availability h4 {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--dark-blue);
+    margin-bottom: 0.5rem;
+    text-align: center; /* Center the "Availability" title */
+}
+
+.doctor-availability p {
+    font-size: 0.85rem;
+    color: #555;
+    margin-bottom: 0.25rem;
+}
+
+.doctor-availability p.not-available {
+    font-style: italic;
+    color: #999;
+    text-align: center; /* Center the "Not Available" text */
+}
+
+/* ==========================================================================
+   Doctor Card Availability Box
+   ========================================================================== */
+
+.doctor-availability {
+    margin: 1rem 0;
+    padding: 0.75rem;
+    background-color: #f8f9fa; /* Light grey background */
+    border-radius: 5px;
+    border: 1px solid #e9ecef;
+    text-align: left; /* Override card's center align */
+}
+
+.doctor-availability h4 {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--dark-blue);
+    margin-bottom: 0.5rem;
+    text-align: center; /* Center the "Availability" title */
+}
+
+.doctor-availability p {
+    font-size: 0.85rem;
+    color: #555;
+    margin-bottom: 0.25rem;
+}
+
+.doctor-availability p.not-available {
+    font-style: italic;
+    color: #999;
+    text-align: center; /* Center the "Not Available" text */
+}
+
+/* ==========================================================================
+   Show/Hide Password Icon
+   ========================================================================== */
+
+.password-container {
+    position: relative;
+    /* Move the bottom margin from the input to the container */
+    margin-bottom: 15px;
+}
+
+.password-container input[type="password"],
+.password-container input[type="text"] {
+    /* Remove the default margin from the input */
+    margin-bottom: 0 !important; 
+}
+
+#toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+#toggle-password:hover {
+    color: var(--primary-color);
+}
+
+/* ==========================================================================
+   Password Input with Eye Icon (Fixed)
+   ========================================================================== */
+.password-wrapper {
+    position: relative;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.password-wrapper input {
+    width: 100%;
+    padding-right: 40px; /* Space for icon */
+    margin-bottom: 0 !important; /* No margin on the input itself */
+    box-sizing: border-box;
+}
+
+.toggle-password-btn {
+    position: absolute;
+    right: 10px;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    
+    /* --- FORCE RESET BUTTON STYLES --- */
+    width: auto !important;       /* Don't stretch */
+    background: transparent !important; /* No blue background */
+    border: none !important;      /* No border */
+    padding: 0 !important;        /* No padding */
+    margin: 0 !important;
+    color: #777 !important;       /* Grey icon */
+    /* -------------------------------- */
+    
+    cursor: pointer;
+    font-size: 1rem;
+    z-index: 10;
+    height: auto !important;
+    box-shadow: none !important;
+}
+
+.toggle-password-btn:hover {
+    color: var(--primary-color) !important;
+    background: transparent !important;
+}
